@@ -6,52 +6,64 @@ using System.Threading.Tasks;
 
 class Game
 {
-    public Game() { }
+    public Game()
+    {
+        isPlaying = true;
+        choice = 0;
+        canRest = false;
+        fileName = "characters.txt";
+    }
 
-    private bool isPlaying = false;
+    private bool isPlaying;
+    private int choice;
+    private bool canRest;
+    private string fileName;
+
+    // Character related
+    int activeCharacter;
 
     // Functions
-    void initGame()
+    public void initGame()
     {
 
     }
 
-    void mainMenu()
+    public void mainMenu()
     {
 
     }
 
-    void createNewCharacter()
+    public void createNewCharacter()
     {
 
     }
 
-    void levelUpCharacter()
+    public void levelUpCharacter()
     { 
 
     }
 
-    void saveCharacters()
+    public void saveCharacters()
+    {
+        using FileStream file = File.OpenWrite(fileName);
+    }
+
+    public void loadCharacters()
     {
 
     }
 
-    void loadCharacters()
+    public void selectCharacter()
     {
 
     }
 
-    void selectCharacter()
+    public void Travel()
     {
 
     }
 
-    void Travel()
-    {
-
-    }
-
-    void Rest()
+    public void Rest()
     {
 
     }
