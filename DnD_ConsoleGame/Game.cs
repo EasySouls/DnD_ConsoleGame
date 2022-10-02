@@ -1,62 +1,99 @@
-﻿using System;
+﻿using DnD_ConsoleGame;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
 class Game
 {
-    public Game() { }
+    private int choice;
+    private bool isPlaying;
+    private bool canRest;
 
-    private bool isPlaying = false;
+    // Character related
+    private int activeCharacter;
+    private List<Character> characters = new List<Character>();
+    private string fileName;
+
+    // Enemies
+    // dArray<Enemy> enemies;
+
+    public Game() 
+    {
+        choice = 0;
+        canRest = false;
+        isPlaying = true;
+        activeCharacter = 0;
+        fileName = "characters.txt";
+    }
 
     // Functions
-    void initGame()
+    public void InitGame()
+    {
+        CreateNewCharacter();
+    }
+
+    public void MainMenu()
     {
 
     }
 
-    void mainMenu()
+    public void CreateNewCharacter()
     {
+        Console.Write("Enter the name of your character: ");
+        string? name = Console.ReadLine();
 
+        for (int i = 0; i < characters.Count; i++)
+        {
+            while (name == characters[i].GetName())
+            {
+                Console.WriteLine("Error! Character with the same name already exists!");
+                Console.Write("Enter the name of your character: ");
+                name = Console.ReadLine();
+            }
+        }
+
+        characters.Add(Character());
+        activeCharacter = characters.Count - 1;
+        if (name != null) 
+        {
+            characters[activeCharacter].Initialize(name);
+        }
     }
 
-    void createNewCharacter()
-    {
-
-    }
-
-    void levelUpCharacter()
+    public void LevelUpCharacter()
     { 
 
     }
 
-    void saveCharacters()
+    public void SaveCharacters()
     {
 
     }
 
-    void loadCharacters()
+    public void LoadCharacters()
     {
 
     }
 
-    void selectCharacter()
+    public void SelectCharacter()
     {
 
     }
 
-    void Travel()
+    public void Travel()
+    { 
+
+    }
+
+    public void Rest()
     {
 
     }
 
-    void Rest()
-    {
-
-    }
-
-    // Accessors
+        // Accessors
     public bool GetPlaying()
     {
         return isPlaying;
