@@ -17,8 +17,8 @@ class Game
     private List<Character> characters = new List<Character>();
     private string fileName;
 
-    // Enemies
-    // dArray<Enemy> enemies;
+    // Enemies TODO make this a dinamic array
+    Enemy[] enemies;
 
     public Game() 
     {
@@ -55,7 +55,7 @@ class Game
             }
         }
 
-        characters.Add(Character());
+        characters.Add(new Character());
         activeCharacter = characters.Count - 1;
         if (name != null) 
         {
@@ -84,13 +84,36 @@ class Game
     }
 
     public void Travel()
-    { 
+    {
+        characters[activeCharacter].Travel();
 
+        Event ev = new Event();
+        ev.GenerateEvent(characters[activeCharacter], enemies);
+        canRest = true;
     }
 
     public void Rest()
     {
-
+        if (canRest)
+        {
+            if (characters[activeCharacter].GetHPMax() == characters[activeCharacter].GetHP())
+            {
+                Console.WriteLine("You are already at max hp ({0})!", characters[activeCharacter].GetHP());
+            }
+            else
+            {
+                Console.WriteLine("You take a rest.");
+                int level = characters[activeCharacter].GetLevel();
+                int healAmount = level * 10;
+                characters[activeCharacter].Heal(healAmount);
+                canRest = false;
+                Console.WriteLine("You regained {0} hp!", healAmount);
+            }
+        }
+        else
+        {
+            Console.WriteLine("You have already taken a rest this day. You can only rest after traveling!");
+        }
     }
 
         // Accessors
