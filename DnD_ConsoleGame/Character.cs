@@ -153,16 +153,16 @@ namespace DnD_ConsoleGame
                 Console.WriteLine("Not enough exp to level up!\n");
             }
         }
+        //TODO
+        public string GetAsString()
+        {
+            return null;
+        }
 
-        //public string GetAsString()
-        //{
-
-        //}
-
-        //public string GetAsString2()
-        //{
-
-        //}
+        public string GetAsString2()
+        {
+            return null;
+        }
 
         public void UpdateStats()
         {

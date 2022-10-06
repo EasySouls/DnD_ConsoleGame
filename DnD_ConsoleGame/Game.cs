@@ -5,6 +5,7 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 class Game
 {
@@ -70,7 +71,7 @@ class Game
 
     public void SaveCharacters()
     {
-
+        // TODO write to file
     }
 
     public void LoadCharacters()
@@ -80,7 +81,23 @@ class Game
 
     public void SelectCharacter()
     {
+        Console.WriteLine("Select character: ");
 
+        for (int i = 0; i < characters.Count; i++)
+        {
+            Console.WriteLine("[{0}] {1} (lvl {2})", i, characters[i].GetName(), characters[i].GetLevel());
+        }
+
+        Console.Write("Choice: ");
+        int.TryParse(Console.ReadLine(), out choice);
+        while (choice >= characters.Count || choice < 0)
+        {
+            Console.Write("Wrong input! Choice: ");
+            int.TryParse(Console.ReadLine(), out choice);
+        }
+
+        activeCharacter = choice;
+        Console.WriteLine("{0} is selected.", characters[activeCharacter].GetName());
     }
 
     public void Travel()
