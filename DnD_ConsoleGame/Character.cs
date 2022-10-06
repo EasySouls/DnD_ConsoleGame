@@ -130,7 +130,27 @@ namespace DnD_ConsoleGame
 
         public void PrintStats()
         {
-            // lazyyyyyyyyyy
+            Console.WriteLine("-- Character sheet --");
+            Console.WriteLine("Name: {0}", this.name);
+            Console.WriteLine("Level: {0}\n", this.level);
+            Console.WriteLine("Gold: {0}", this.gold);
+            Console.WriteLine("Distance traveled: \n", this.distanceTraveled);
+            Console.WriteLine("Experience: {0}", this.exp);
+            Console.WriteLine("Experience to next level: {0}\n", this.expNext);
+            Console.WriteLine("Strength: {0}", this.strength);
+            Console.WriteLine("Dexterity: {0}", this.dexterity);
+            Console.WriteLine("Constitution: {0}", this.constitution);
+            Console.WriteLine("Intelligence: {0}", this.intelligence);
+            Console.WriteLine("Wisdom: {0}", this.wisdom);
+            Console.WriteLine("Charisma: {0}\n", this.charisma);
+            Console.WriteLine("HP: {0} / {1}", this.hp, this.hpMax);
+            Console.WriteLine("Stamina: {0} / {1}", this.stamina, this.staminaMax);
+            Console.WriteLine("Damage: {0} - {1}", this.damageMin, this.damageMax);
+            Console.WriteLine("Defence: {0}", this.defence);
+            Console.WriteLine("Accuracy: {0}", this.accuracy);
+            Console.WriteLine("Luck: {0}\n", this.luck);
+            Console.WriteLine("Stat points: {0}", this.statPoints);
+            Console.WriteLine("Skill points: {0}\n", this.skillPoints);
         }
 
         public void LevelUp()
@@ -156,12 +176,13 @@ namespace DnD_ConsoleGame
         //TODO
         public string GetAsString()
         {
-            return null;
+            string s = string.Join(" ", name + distanceTraveled + gold + level + exp + strength + constitution + intelligence + wisdom + charisma + hp + stamina + statPoints + skillPoints);
+            return s;
         }
 
         public string GetAsString2()
         {
-            return null;
+            return name + ", " + distanceTraveled + " distance traveled, " + gold + " gold, lvl " + level + ", " + exp + " exp, " + strength + " strength, " + dexterity + " dexterity, " + constitution + " constitution, " + intelligence + " intelligence, " + wisdom + " wisdom, " + charisma + " charisma, " + hp + " hp, " + stamina + " stamina, " + statPoints + " stat points and " + skillPoints + " skill points\n";
         }
 
         public void UpdateStats()
@@ -252,7 +273,7 @@ namespace DnD_ConsoleGame
         public int GetSkillPoints() { return this.skillPoints; }
         public int GetStrength() { return this.strength; }
         public int GetDexterity() { return this.dexterity; }
-        public int GetConstituion() { return this.constitution; }
+        public int GetConstitution() { return this.constitution; }
         public int GetIntelligence() { return this.intelligence; }
         public int GetWisdom() { return this.wisdom; }
         public int GetCharisma() { return this.charisma; }
@@ -268,5 +289,7 @@ namespace DnD_ConsoleGame
         public void UpgradeIntelligence() { this.intelligence++; UpdateStats(); }
         public void UpgradeWisdom() { this.wisdom++; UpdateStats(); }
         public void UpgradeCharisma() { this.charisma++; UpdateStats(); }
+        public void AddToStatPoints(int value) { this.statPoints += value; }
+        public void AddToSkillPoints(int value) { this.skillPoints += value; }
     }
 }
