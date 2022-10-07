@@ -134,7 +134,7 @@ namespace DnD_ConsoleGame
             Console.WriteLine("Name: {0}", this.name);
             Console.WriteLine("Level: {0}\n", this.level);
             Console.WriteLine("Gold: {0}", this.gold);
-            Console.WriteLine("Distance traveled: \n", this.distanceTraveled);
+            Console.WriteLine("Distance traveled: {0}\n", this.distanceTraveled);
             Console.WriteLine("Experience: {0}", this.exp);
             Console.WriteLine("Experience to next level: {0}\n", this.expNext);
             Console.WriteLine("Strength: {0}", this.strength);
@@ -176,7 +176,7 @@ namespace DnD_ConsoleGame
         //TODO
         public string GetAsString()
         {
-            string s = string.Join(" ", name + distanceTraveled + gold + level + exp + strength + constitution + intelligence + wisdom + charisma + hp + stamina + statPoints + skillPoints);
+            string s = string.Join(", ", name + distanceTraveled + gold + level + exp + strength + constitution + intelligence + wisdom + charisma + hp + stamina + statPoints + skillPoints);
             return s;
         }
 
