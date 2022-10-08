@@ -8,11 +8,11 @@ namespace DnD_ConsoleGame
 {
     internal class Item
     {
-        private string name;
-        private int level;
-        private int sellValue;
-        private int buyValue;
-        private int rarity;
+        protected string name;
+        protected int level;
+        protected int sellValue;
+        protected int buyValue;
+        protected int rarity;
 
         public Item(string name = "NONE", int level = 0, int sellValue = 0, int buyValue = 0, int rarity = 0 )
         {
