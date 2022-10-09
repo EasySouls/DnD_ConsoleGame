@@ -43,6 +43,8 @@ namespace DnD_ConsoleGame
         private int statPoints;
         private int skillPoints;
 
+        Random random = new Random();
+
         public Character()
         {
             distanceTraveled = 0;
@@ -277,6 +279,7 @@ namespace DnD_ConsoleGame
         public int GetIntelligence() { return this.intelligence; }
         public int GetWisdom() { return this.wisdom; }
         public int GetCharisma() { return this.charisma; }
+        public int GetDamage() { return random.Next() % damageMax - damageMin; }
 
 
         // Modifiers

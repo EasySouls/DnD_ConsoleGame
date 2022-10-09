@@ -19,7 +19,7 @@ class Game
     private string fileName;
 
     // Enemies 
-    Enemy[] enemies; //TODO make this a dinamic array
+    List<Enemy> enemies; //TODO make this a dinamic array
 
     public Game()
     {
@@ -29,7 +29,7 @@ class Game
         activeCharacter = 0;
         fileName = "characters.txt";
         characters = new List<Character>();
-        enemies = new Enemy[100];
+        enemies = new List<Enemy>();
     }
 
     // Functions

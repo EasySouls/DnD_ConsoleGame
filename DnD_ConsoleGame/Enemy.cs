@@ -50,6 +50,7 @@ namespace DnD_ConsoleGame
         }
 
         // Accessors
+        public bool IsAlive() { return hp > 0; }
         public string GetName() { return name; }
         public int GetDamage() { return rand.Next() % damageMax + damageMin; } 
         public int GetExpValue() { return level * 100; }
