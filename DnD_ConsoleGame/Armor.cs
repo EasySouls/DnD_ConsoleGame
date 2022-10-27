@@ -6,28 +6,28 @@ using System.Threading.Tasks;
 
 namespace DnD_ConsoleGame
 {
-    internal class Weapon : Item
+    enum armorType { NONE = 0, LIGHT, MEDIUM, HEAVY }
+
+    class Armor : Item
     {
-        private int damageMin;
-        private int damageMax;
+        int armorClass;
+        int type;
 
         bool upgradeable;
         int level;
         int maxLevel;
 
-        public Weapon(int damageMin, int damageMax, bool upgradeable, int level, int maxLevel, string name, int buyValue, int sellValue, int rarity)
+        public Armor(int armorClass, int type, bool upgradeable, int level, int maxLevel, string name, int buyValue, int sellValue, int rarity)
         {
-            this.damageMin = damageMin;
-            this.damageMax = damageMax;
-            this.name = name;
+            this.armorClass = armorClass;
+            this.type = type;   
+            this.upgradeable = upgradeable;
             this.level = level;
+            this.maxLevel = maxLevel;
             this.buyValue = buyValue;
             this.sellValue = sellValue;
             this.rarity = rarity;
         }
-
-        // I do not know yet if it works
-        public override Weapon Clone() { return this; }
 
         public void Upgrade()
         {
@@ -39,12 +39,12 @@ namespace DnD_ConsoleGame
 
         public override string ToString()
         {
-            string str = damageMin + " " + damageMax;
+            string str = armorClass + " " + type;
             return str;
         }
 
         // Accessors
-        public int GetDamageMin() { return damageMin; }
-        public int GetDamageMax() { return damageMax; }
+        public int GetArmorType() { return type; }
+        public int GetArmorClass() { return armorClass; }
     }
 }

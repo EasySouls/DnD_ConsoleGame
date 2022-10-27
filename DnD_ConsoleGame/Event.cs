@@ -69,13 +69,15 @@ namespace DnD_ConsoleGame
             // Combat variables
             int attackRollPlayer = 0;
             int attackRollEnemy = 0;
-            int defenceRoll = 0;
             int battleChoice = 0;
             int damage = 0;
             int expGained = 0;
             int playerTotal = 0;
             int enemyTotal = 0;
             int combatTotal = 0;
+
+            float _playerTotal = 0;
+            float _enemyTotal = 0;
 
             while (!escaped && !playerDefeated && !enemiesDefeated)
             {
@@ -114,8 +116,10 @@ namespace DnD_ConsoleGame
                                 Console.Write("Wrong input! Choice: ");
                             }
                             combatTotal = enemies[battleChoice].GetDefence() + character.GetAccuracy();
-                            enemyTotal = (enemies[battleChoice].GetDefence() / combatTotal) * 100;
-                            playerTotal = (character.GetAccuracy() / combatTotal) * 100;
+                            _enemyTotal = (float)enemies[battleChoice].GetDefence() / combatTotal * 100;
+                            enemyTotal = Convert.ToInt32(_enemyTotal);
+                            _playerTotal = (float)character.GetAccuracy() / combatTotal * 100;
+                            playerTotal = Convert.ToInt32(_playerTotal);
                             attackRollPlayer = random.Next() % playerTotal + 1;
                             attackRollEnemy = random.Next() % enemyTotal + 1;
 
@@ -165,8 +169,10 @@ namespace DnD_ConsoleGame
                     for (int i = 0; i < enemies.Count; i++) 
                     {
                         combatTotal = enemies[i].GetAccuracy() + character.GetDefence();
-                        enemyTotal = (enemies[i].GetAccuracy() / combatTotal) * 100;
-                        playerTotal = (character.GetDefence() / combatTotal) * 100;
+                        _enemyTotal = (float)enemies[i].GetAccuracy() / combatTotal * 100;
+                        enemyTotal = Convert.ToInt32(_enemyTotal);
+                        _playerTotal = (float)character.GetDefence() / combatTotal * 100;
+                        playerTotal = Convert.ToInt32(_playerTotal);
                         attackRollPlayer = random.Next() % playerTotal + 1;
                         attackRollEnemy = random.Next() % enemyTotal + 1;
 
